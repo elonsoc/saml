@@ -22,8 +22,8 @@ import (
 	xrv "github.com/mattermost/xml-roundtrip-validator"
 	dsig "github.com/russellhaering/goxmldsig"
 
-	"github.com/crewjam/saml/logger"
-	"github.com/crewjam/saml/xmlenc"
+	"github.com/elonsoc/saml/logger"
+	"github.com/elonsoc/saml/xmlenc"
 )
 
 // Session represents a user session. It is returned by the
@@ -550,8 +550,7 @@ func (req *IdpAuthnRequest) getACSEndpoint() error {
 
 // DefaultAssertionMaker produces a SAML assertion for the
 // given request and assigns it to req.Assertion.
-type DefaultAssertionMaker struct {
-}
+type DefaultAssertionMaker struct{}
 
 // MakeAssertion implements AssertionMaker. It produces a SAML assertion from the
 // given request and assigns it to req.Assertion.

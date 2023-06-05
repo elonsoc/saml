@@ -19,7 +19,7 @@ import (
 	"github.com/zenazn/goji"
 	"github.com/zenazn/goji/web"
 
-	"github.com/crewjam/saml/samlsp"
+	"github.com/elonsoc/saml/samlsp"
 )
 
 var links = map[string]Link{}
@@ -144,7 +144,6 @@ func main() {
 	spURL := *idpMetadataURL
 	spURL.Path = "/services/sp"
 	resp, err := http.Post(spURL.String(), "text/xml", bytes.NewReader(spMetadataBuf))
-
 	if err != nil {
 		panic(err)
 	}

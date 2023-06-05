@@ -11,8 +11,8 @@ import (
 	"github.com/zenazn/goji"
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/crewjam/saml/logger"
-	"github.com/crewjam/saml/samlidp"
+	"github.com/elonsoc/saml/logger"
+	"github.com/elonsoc/saml/samlidp"
 )
 
 var key = func() crypto.PrivateKey {
@@ -93,7 +93,8 @@ func main() {
 	}
 
 	hashedPassword, _ := bcrypt.GenerateFromPassword([]byte("hunter2"), bcrypt.DefaultCost)
-	err = idpServer.Store.Put("/users/alice", samlidp.User{Name: "alice",
+	err = idpServer.Store.Put("/users/alice", samlidp.User{
+		Name:           "alice",
 		HashedPassword: hashedPassword,
 		Groups:         []string{"Administrators", "Users"},
 		Email:          "alice@example.com",
